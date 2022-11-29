@@ -24,13 +24,31 @@ if(!(num[i].includes('.') || num[i].includes(','))) quantInts++
 }
 alert(quantInts)
 }
-function Fibonacci() {
-//Loop que so conta os 20 primeiros numeros
-fibonacci = [0, 1]
-for (i = 2; i < 20; i++) {
-fibonacci.push(fibonacci[(i - 1)] + fibonacci[(i - 2)])
+function fibonacci(quantidadeDeNumeros) {
+let numero1 = 0;
+let numero2 = 1;
+let numeroMínimo = 2;
+let somaFinal;
+
+if(quantidadeDeNumeros<=0) {
+    return []
+} else if(quantidadeDeNumeros==1) {
+    return[0];
+} else if(quantidadeDeNumeros==2) {
+    return[0, 1];
 }
-alert('Criei um loop que mostra apenas os 20 primeiros numeros, mas voce pode mudar no for loop.' + '\n' + '\n' +fibonacci)
+resultadoFinal = [0, 1];
+
+while(numeroMínimo<quantidadeDeNumeros) {
+    numeroMínimo++;
+    somaFinal = numero1+numero2;
+    numero1=numero2;
+    numero2=somaFinal;
+    resultadoFinal.push(somaFinal)    
+}
+return resultadoFinal;
+}
+module.exports = fibonacci; 
 }
 function MDC() {
 let mdc
